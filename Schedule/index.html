@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Reservasi Kelas (Admin & User)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏛️ Sistem Reservasi Ruangan Kelas</h1>
+        <button id="logout-btn" style="display: none;">Logout</button>
+    </header>
+
+    <main>
+        <section id="login-section">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required placeholder="admin atau user">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" required placeholder="admin atau user">
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="user-reservasi-form" style="display: none;">
+            <h2>Pengajuan Reservasi Baru</h2>
+            <p><strong>Cek Ketersediaan:</strong></p>
+            <form id="cekKetersediaanForm" class="inline-form">
+                <input type="date" id="cekTanggal" required>
+                <input type="time" id="cekWaktuMulai" required>
+                <input type="time" id="cekWaktuSelesai" required>
+                <button type="submit">Cek Ruangan</button>
+            </form>
+            <div id="hasilKetersediaan" class="alert-info">Pilih tanggal dan waktu di atas untuk melihat ruangan yang tersedia.</div>
+            
+            <hr>
+
+            <form id="pengajuanReservasiForm">
+                <label for="pilihRuangan">Pilih Ruangan:</label>
+                <select id="pilihRuangan" required>
+                    <option value="">-- Pilih Ruangan --</option>
+                    <option value="Kelas A">Kelas A</option>
+                    <option value="Kelas B">Kelas B</option>
+                    <option value="Lab Komputer 1">Lab Komputer 1</option>
+                </select>
+
+                <label for="tanggalReservasi">Tanggal:</label>
+                <input type="date" id="tanggalReservasi" required>
+
+                <label for="waktuMulai">Waktu Mulai:</label>
+                <input type="time" id="waktuMulai" required>
+
+                <label for="waktuSelesai">Waktu Selesai:</label>
+                <input type="time" id="waktuSelesai" required>
+
+                <label for="keterangan">Keperluan:</label>
+                <textarea id="keterangan" rows="3" required></textarea>
+
+                <button type="submit">Ajukan Reservasi</button>
+            </form>
+        </section>
+
+        <section id="admin-dashboard" style="display: none;">
+            <h2>Dashboard Admin: Persetujuan Reservasi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ruangan</th>
+                        <th>Tanggal/Waktu</th>
+                        <th>Peminjam</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelBodyPengajuan">
+                    <tr><td colspan="5" style="text-align: center;">Tidak ada pengajuan reservasi pending.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="status-reservasi" style="display: none;">
+            <h2>Status & Riwayat Reservasi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ruangan</th>
+                        <th>Tanggal/Waktu</th>
+                        <th>Peminjam</th>
+                        <th>Keperluan</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelBodyStatus">
+                    <tr><td colspan="5" style="text-align: center;">Tidak ada riwayat reservasi.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sistem Reservasi Kelas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
